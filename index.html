@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="wordGame">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Word Guess Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="./assets/style.css">
+    <!-- <style>[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-    ng-cloak {
+                display: none !important;}</style> -->
+</head>
+<body>
+
+    <div ng-controller="ctrl">
+        
+        {{guessesRemaining}}
+
+        <h2>Incorrect guesses: <span ng-repeat="guesses in incorrectGuesses">{{guesses}} </span></h2>
+        <h2>Correct guesses: <span ng-repeat="guesses in correctGuesses">{{guesses}} </span></h2>
+        <br>
+        <br>
+        <h2>Word to Guess: <span>{{displayed}}</span></h2>
+
+        <span><input type="text" ng-model="inputGuess">
+        <button ng-click="guessedLetter()">Guess</button></span>
+
+    </div>
+
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="./assets/app.js"></script>
+</body>
+</html>
