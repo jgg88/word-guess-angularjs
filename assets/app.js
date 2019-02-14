@@ -9,6 +9,7 @@ app.controller('ctrl', ($scope) => {
     $scope.displayed = '';
     let wordArray = ['Game of Thrones', 'Rick and Morty', 'The Office', 'Westworld', 'King of Queens', 'The IT crowd'];
     let randomWord = wordArray[Math.floor(Math.random() * wordArray.length)].toUpperCase();
+    let correctLetter = false;
 
     $scope.generateWord = () => {
         console.log(randomWord)
@@ -23,7 +24,12 @@ app.controller('ctrl', ($scope) => {
     $scope.generateWord();
 
     $scope.guessedLetter = () => {
-        let correctLetter = false;
+
+        if ($scope.incorrectGuesses.includes($scope.inputGuess.toUpperCase()) || $scope.incorrectGuesses.includes($scope.inputGuess.toUpperCase())) {
+            $scope.inputGuess = '';
+            return;
+        }
+
         for (letter in randomWord) {
             if (randomWord[letter] === $scope.inputGuess.toUpperCase()) {
                 correctLetter = true;
@@ -35,11 +41,16 @@ app.controller('ctrl', ($scope) => {
         if (!correctLetter) {
             $scope.guessesRemaining--;
             $scope.incorrectGuesses.push($scope.inputGuess.toUpperCase());
-        }
-        if (correctLetter) {
+        } else {
             $scope.correctGuesses.push($scope.inputGuess.toUpperCase());
             correctLetter = false;
         }
         $scope.inputGuess = '';
+
+        if ($scope.displayed === randomWord.toUpperCase()) {
+            alert('YOU WON')
+        } else if ($scope.guessesRemaining === 0) {
+            alert('SORRY, YOU LOST!')
+        }
     }
 });
