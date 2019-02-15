@@ -10,7 +10,7 @@ app.controller('ctrl', ($scope) => {
     $scope.showValidationError = true;
     let wordArray = ['Game of Thrones', 'Rick and Morty', 'The Office', 'Westworld', 'King of Queens', 'The IT crowd'];
     let randomWord;
-    let correctLetter = false;
+    let correctLetter;
 
     $scope.generateWord = () => {
         randomWord = wordArray[Math.floor(Math.random() * wordArray.length)].toUpperCase();
@@ -47,7 +47,7 @@ app.controller('ctrl', ($scope) => {
                 $scope.displayed = displayedArr.join('');
             }
         }
-        if (!correctLetter) {
+        if (correctLetter === false) {
             $scope.guessesRemaining--;
             $scope.incorrectGuesses.push($scope.inputGuess.toUpperCase());
         } else {
