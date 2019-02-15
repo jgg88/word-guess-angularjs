@@ -58,7 +58,7 @@ app.controller('ctrl', ($scope) => {
 
         if ($scope.displayed === randomWord.toUpperCase()) {
             $scope.gameInPlay = false;
-            $scope.gameOverText = 'Congratulations! You Won!';
+            $scope.gameOverText = `Congratulations! You correctly guessed ${randomWord}!`;
         } else if ($scope.guessesRemaining === 0) {
             $scope.gameInPlay = false;
             $scope.gameOverText = `Sorry you lost, the answer was ${randomWord}!`;

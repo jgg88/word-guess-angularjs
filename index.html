@@ -13,7 +13,7 @@
 
     <div ng-controller="ctrl">
         
-        <div ng-show="gameInPlay">
+        <div ng-show="gameInPlay" ng-keypress="guessedLetter()">
             {{guessesRemaining}}
 
             <h2>Incorrect guesses: <span ng-repeat="guesses in incorrectGuesses">{{guesses}} </span></h2>
@@ -21,9 +21,8 @@
             <br>
             <br>
             <h2>Word to Guess: <span>{{displayed}}</span></h2>
-
-            <span><input type="text" ng-model="inputGuess">
-            <button ng-click="guessedLetter()">Guess</button></span>
+                
+            <input type="text" ng-model="inputGuess" ng-change="guessedLetter()">
             <br>
             <br>
             <h3 ng-hide="showValidationError">You've already guessed this letter!</h3>
