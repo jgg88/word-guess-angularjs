@@ -6,41 +6,28 @@
     <title>Word Guess Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="./assets/style.css">
-    <!-- <style>[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-    ng-cloak {
-                display: none !important;}</style> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 </head>
-<body>
-
+<body class="ng-cloak">
     <div ng-controller="ctrl">
-        
         <div ng-show="gameInPlay" ng-keypress="guessedLetter()">
             {{guessesRemaining}}
-
             <h2>Incorrect guesses: <span ng-repeat="guesses in incorrectGuesses">{{guesses}} </span></h2>
             <h2>Correct guesses: <span ng-repeat="guesses in correctGuesses">{{guesses}} </span></h2>
             <br>
             <br>
-            <h2>Word to Guess: <span>{{displayed}}</span></h2>
-                
+            <h2>Word to Guess: <span>{{displayed}}</span></h2> 
             <input type="text" ng-model="inputGuess" ng-change="guessedLetter()">
             <br>
             <br>
             <h3 ng-hide="showValidationError">You've already guessed this letter!</h3>
         </div>
         <div ng-show="!gameInPlay">
-
             {{gameOverText}}
             Play again?
-
             <button ng-click="generateWord()">New Game</button>
         </div>
-
-
     </div>
-
-    
-
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="./assets/app.js"></script>
 </body>
 </html>

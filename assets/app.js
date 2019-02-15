@@ -30,7 +30,7 @@ app.controller('ctrl', ($scope) => {
         }
     }
     $scope.generateWord();
-
+    
     $scope.guessedLetter = () => {
         $scope.showValidationError = true;
         if ($scope.correctGuesses.includes($scope.inputGuess.toUpperCase()) || $scope.incorrectGuesses.includes($scope.inputGuess.toUpperCase())) {
@@ -38,7 +38,6 @@ app.controller('ctrl', ($scope) => {
             $scope.showValidationError = false;
             return;
         }
-
         for (letter in randomWord) {
             if (randomWord[letter] === $scope.inputGuess.toUpperCase()) {
                 correctLetter = true;
@@ -55,7 +54,6 @@ app.controller('ctrl', ($scope) => {
             correctLetter = false;
         }
         $scope.inputGuess = '';
-
         if ($scope.displayed === randomWord.toUpperCase()) {
             $scope.gameInPlay = false;
             $scope.gameOverText = `Congratulations! You correctly guessed ${randomWord}!`;
