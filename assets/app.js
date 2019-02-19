@@ -20,17 +20,18 @@ app.controller('ctrl', ($scope) => {
         $scope.correctGuesses = [];
         $scope.inputGuess = '';
         $scope.displayed = '';
+        correctLetter = '';
         console.log(randomWord)
         for (i=0; i < randomWord.length; i++) {
             if (randomWord[i] === ' ') {
                 $scope.displayed += ' ';
             } else {
-                $scope.displayed += '-';
+                $scope.displayed += '\u2014';
             }
         }
     }
     $scope.generateWord();
-    
+
     $scope.guessedLetter = () => {
         $scope.showValidationError = true;
         if ($scope.correctGuesses.includes($scope.inputGuess.toUpperCase()) || $scope.incorrectGuesses.includes($scope.inputGuess.toUpperCase())) {

@@ -1,0 +1,57 @@
+body {
+    display: flex;
+    justify-content: center;
+    background-color: #000000;
+}
+
+.main-div {
+    text-align: center;
+    color: #FFFFFF;
+    height: 450px;
+    width: 600px;
+    padding: 20px;
+    margin-top: 20%;
+}
+
+.remaining {
+    font-size: 50px;
+    margin: 0;
+}
+
+.correct {
+    float: left;
+    margin: 30px 0 30px 15%;
+    width: 83px;
+    height: 150px;
+}
+
+.incorrect {
+    float: right;
+    margin: 30px 15% 30px 0;
+    width: 100px;
+    height: 150px;
+}
+
+input {
+    height: 30px;
+    font-size: 18px;
+    background-color: black;
+    padding-left: 10px;
+}
+
+.displayed {
+    clear: both;
+}
+
+.new-game {
+    margin-top: 30px;
+    color: #FFFFFF;
+    background-color: #000000;
+    height: 40px;
+    width: 125px;
+    font-size: 18px;
+}
+
+.game-over-div {
+    margin-top: 50px;
+}

@@ -9,23 +9,27 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 </head>
 <body class="ng-cloak">
-    <div ng-controller="ctrl">
+    <div class="main-div" ng-controller="ctrl">
         <div ng-show="gameInPlay" ng-keypress="guessedLetter()">
-            {{guessesRemaining}}
-            <h2>Incorrect guesses: <span ng-repeat="guesses in incorrectGuesses">{{guesses}} </span></h2>
-            <h2>Correct guesses: <span ng-repeat="guesses in correctGuesses">{{guesses}} </span></h2>
+            <h3>Lives</h3>
+            <p class="remaining">{{guessesRemaining}}</p>
+            <h2 class="incorrect">Incorrect <span class="guess" ng-repeat="guesses in incorrectGuesses">{{guesses}} </span></h2>
+            <h2 class="correct">Correct <span class="guess" ng-repeat="guesses in correctGuesses">{{guesses}} </span></h2>
             <br>
             <br>
-            <h2>Word to Guess: <span>{{displayed}}</span></h2> 
-            <input type="text" ng-model="inputGuess" ng-change="guessedLetter()">
+            <h2 class="displayed"><span>{{displayed}}</span></h2> 
+            <input type="text" ng-model="inputGuess" ng-change="guessedLetter()" placeholder="type here">
             <br>
             <br>
             <h3 ng-hide="showValidationError">You've already guessed this letter!</h3>
         </div>
-        <div ng-show="!gameInPlay">
+        <div class="game-over-div" ng-show="!gameInPlay">
             {{gameOverText}}
+            <br>
+            <br>
             Play again?
-            <button ng-click="generateWord()">New Game</button>
+            <br>
+            <button class="new-game" ng-click="generateWord()">New Game</button>
         </div>
     </div>
     <script src="./assets/app.js"></script>
